@@ -7,17 +7,16 @@ CREATE DATABASE book_shop;
 USE book_shop;
 
 /*create table book*/
-CREATE TABLE books 
-	(
-		book_id INT AUTO_INCREMENT,
-		title VARCHAR(100),
-		author_fname VARCHAR(100),
-		author_lname VARCHAR(100),
-		released_year INT,
-		stock_quantity INT,
-		pages INT,
-		PRIMARY KEY(book_id)
-	);
+CREATE TABLE books (
+    book_id INT AUTO_INCREMENT,
+    title VARCHAR(100),
+    author_fname VARCHAR(100),
+    author_lname VARCHAR(100),
+    released_year INT,
+    stock_quantity INT,
+    pages INT,
+    PRIMARY KEY (book_id)
+);
  
  
  /*insert values into the table*/
@@ -41,43 +40,66 @@ VALUES
 ('Consider the Lobster', 'David', 'Foster Wallace', 2005, 92, 343);
 
 /*show all values in the table*/
-SELECT * FROM books;
+SELECT 
+    *
+FROM
+    books;
 
 /*describe books*/
 DESC books;
 
 /*concat function*/
 
-/*1. conct first name and last name for full name*/
-SELECT CONCAT (author_fname, '!!!') FROM books;
-SELECT CONCAT (author_fname,' ', author_lname) AS author_name FROM books;
+SELECT 
+    CONCAT(author_fname, '!!!')
+FROM
+    books;
+SELECT 
+    CONCAT(author_fname, ' ', author_lname) AS author_name
+FROM
+    books;
 
 /*2. concat with separate concat_ws*/
-SELECT CONCAT_WS('-', title, author_fname, author_lname ) FROM books;
+SELECT 
+    CONCAT_WS('-', title, author_fname, author_lname)
+FROM
+    books;
 
 
 /*substring*/
-SELECT title FROM books;
-SELECT SUBSTRING(title , 1 , 15) FROM books;
-SELECT SUBSTRING(author_fname, 1, 1) AS initial , author_lname  FROM books;
+SELECT 
+    title
+FROM
+    books;
+SELECT 
+    SUBSTRING(title, 1, 15)
+FROM
+    books;
+SELECT 
+    SUBSTRING(author_fname, 1, 1) AS initial, author_lname
+FROM
+    books;
 
 /*combine concat and substring together*/
-SELECT CONCAT( 
-               SUBSTR(title, 1, 10), 
-               '...'
-               ) AS short_title 
-FROM books;
+SELECT 
+    CONCAT(SUBSTR(title, 1, 10), '...') AS short_title
+FROM
+    books;
 
-SELECT
-       CONCAT( 
-                SUBSTR( author_fname, 1, 1), 
-                '.' ,
-                SUBSTR(author_lname, 1, 1), 
-                '.'
-			 ) AS author_initials 
-FROM books;
+SELECT 
+    CONCAT(SUBSTR(author_fname, 1, 1),
+            '.',
+            SUBSTR(author_lname, 1, 1),
+            '.') AS author_initials
+FROM
+    books;
 
 /*replace string function*/
+
+
+
+
+
 
 
 
