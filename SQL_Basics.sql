@@ -1,5 +1,21 @@
+/*create database for shirts*/
+CREATE DATABASE shirts_db;
+ 
+ /*use the shirts database*/
 USE shirts_db;
+ 
+ /*cretae table of shirts in database*/
+CREATE TABLE shirts (
+    shirt_id INT AUTO_INCREMENT PRIMARY KEY,
+    article VARCHAR(50),
+    color VARCHAR(50),
+    shirt_size VARCHAR(5),
+    last_worn INT
+);
+
+/*describe the shirts table*/ 
 DESC shirts;
+
 
 /* Inserting the values into the table and showing all inserted values into the table.*/
 INSERT INTO shirts ( article, color, shirts_size, last_worn)
