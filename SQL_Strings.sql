@@ -57,8 +57,27 @@ SELECT CONCAT_WS('-', title, author_fname, author_lname ) FROM books;
 
 
 /*substring*/
+SELECT title FROM books;
+SELECT SUBSTRING(title , 1 , 15) FROM books;
+SELECT SUBSTRING(author_fname, 1, 1) AS initial , author_lname  FROM books;
 
+/*combine concat and substring together*/
+SELECT CONCAT( 
+               SUBSTR(title, 1, 10), 
+               '...'
+               ) AS short_title 
+FROM books;
 
+SELECT
+       CONCAT( 
+                SUBSTR( author_fname, 1, 1), 
+                '.' ,
+                SUBSTR(author_lname, 1, 1), 
+                '.'
+			 ) AS author_initials 
+FROM books;
+
+/*replace string function*/
 
 
 
