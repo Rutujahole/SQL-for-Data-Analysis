@@ -154,6 +154,61 @@ SELECT TRIM(TRAILING 'x' FROM 'xxxboatonxxx');
 SELECT TRIM(BOTH 'x' FROM 'xxxboatonxxx');
 
 
+/*excercises*/
+
+/*reverse and uppercase the following sentence using single query - "Why does my cat look at me ith such hatred?" */
+SELECT REVERSE(UCASE('Why does my cat look at me ith such hatred?')); 
+
+/*pause and think what output will it be*/
+SELECT 
+    REPLACE(CONCAT('I', ' ', 'like', ' ', 'cats'),
+        ' ',
+        '-');
+
+/*replace spaces with '->' in the books table and name column as title*/
+SELECT 
+    REPLACE(title, ' ', '->') AS title
+FROM
+    books;
+
+ /* print 2 columns with forwards and backwards in forwards column author last name and backwards column author's reversed last name*/
+ SELECT 
+    author_lname AS forwards, REVERSE(author_lname) AS backwards
+FROM
+    books;
+ 
+ /*print the column 'fullname in caps' as the authors fullname*/
+ SELECT 
+    CONCAT(UCASE(author_fname),
+            ' ',
+            UCASE(author_lname)) AS 'full name in caps'
+FROM
+    books;
+ 
+ /*combine the title the 'was released in' and release year in table blurd*/
+SELECT 
+    CONCAT(title,
+            ' was released in ',
+            released_year) AS blurb
+FROM
+    books;
+ 
+ /*print the title and the length of title in different column as character count*/
+SELECT 
+    title, CHAR_LENGTH(title) AS 'character count'
+FROM
+    books;
+    
+/*print title.... , authorfirstname,authorlastname quantity in stock in 3 different columns*/
+
+SELECT 
+    CONCAT(SUBSTR(title, 1, 10), '...') AS 'short title',
+    CONCAT(author_lname, ',', author_fname) AS author,
+    CONCAT(stock_quantity, ' in stock') AS quantity
+FROM
+    books;
+ 
+ 
 
 
 
