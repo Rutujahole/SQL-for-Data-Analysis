@@ -94,8 +94,64 @@ SELECT
 FROM
     books;
 
-/*replace string function*/
 
+/*replace string function - replace portions of string with other replacable strings*/
+SELECT 
+    REPLACE(title, ' ', '-')
+FROM
+    books;
+
+/*Reverse*/
+SELECT 
+    REVERSE(title)
+FROM
+    books;
+    
+SELECT REVERSE(NULL);
+
+SELECT 
+    REVERSE(author_fname)
+FROM
+    books;
+    
+SELECT 
+    CONCAT(author_fname, REVERSE(author_fname)) AS palindrome
+FROM
+    books;
+
+/*char-length*/
+SELECT CHAR_LENGTH('hello'); /*return the length of the word from h to o*/
+SELECT LENGTH('美 王');  /*returns no of bytes the charater was stored in*/
+SELECT 
+    CHAR_LENGTH(title) AS title_length, title
+FROM
+    books;
+
+/*upper and lower case*/
+SELECT 
+    UCASE(title)
+FROM
+    books;
+SELECT 
+    CONCAT('I LOVE', UPPER(title), ' !!!')
+FROM
+    books;
+
+/*other string functions*/
+
+SELECT INSERT('hello  Bobby', 6, 0, ' there');
+SELECT INSERT('hello  Bobby', 6, 4, ' there');
+SELECT LEFT('omdhahalol!!', 3);
+SELECT RIGHT('omdhahalol!!', 5);
+SELECT 
+    LEFT(author_lname, 1)
+FROM
+    books;
+SELECT REPEAT('ha', 4);
+SELECT TRIM('  boaton');
+SELECT TRIM(LEADING 'x' FROM 'xxxboatonxxx');
+SELECT TRIM(TRAILING 'x' FROM 'xxxboatonxxx');
+SELECT TRIM(BOTH 'x' FROM 'xxxboatonxxx');
 
 
 
